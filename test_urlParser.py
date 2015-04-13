@@ -31,3 +31,12 @@ class basicSiteParsing(unittest.TestCase):
 
     def test_site_with_complex_path(self):
         self.assertSite('http://www.essex.ac.uk/csee/home.html', 'www.essex.ac.uk')
+
+
+class basicPathParsing(unittest.TestCase):
+    def assertPath(self, url, expected_path):
+        purl = urlParser(url)
+        self.assertEqual(purl.path, expected_path)
+
+    def test_empty_path(self):
+        self.assertSite('http://www.essex.ac.uk', '')
