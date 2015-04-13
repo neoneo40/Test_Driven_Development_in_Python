@@ -25,3 +25,9 @@ class basicSiteParsing(unittest.TestCase):
 
     def test_site_without_path(self):
         self.assertSite('http://www.essex.ac.uk', 'www.essex.ac.uk')
+
+    def test_site_with_simple_path(self):
+        self.assertSite('http://www.essex.ac.uk/home.html', 'www.essex.ac.uk')
+
+    def test_site_with_complex_path(self):
+        self.assertSite('http://www.essex.ac.uk/csee/home.html', 'www.essex.ac.uk')
