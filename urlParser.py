@@ -1,3 +1,6 @@
 class urlParser:
     def __init__(self, url):
-        self.protocol = 'http'
+        if url[0] == 'h':
+            self.protocol = 'http'
+        else:
+            self.protocol = 'ftp'
