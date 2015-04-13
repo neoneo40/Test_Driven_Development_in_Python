@@ -2,15 +2,17 @@ import unittest
 
 from urlParser import urlParser
 
+
 class basicProtocolParsing(unittest.TestCase):
+    def assertProtocol(self, url, expected_protocol):
+        purl = urlParser(url)
+        self.assertEqual(purl.protocol, expected_protocol)
+
     def test_html_protocol(self):
-        purl = urlParser('http://www.essex.ac.uk')
-        self.assertEqual(purl.protocol, 'http')
+        self.assertProtocol('http://www.essex.ac.uk', 'http')
 
     def test_ftp_protocol(self):
-        purl = urlParser('ftp://ftp.essex.ac.uk')
-        self.assertEqual(purl.protocol, 'ftp')
+        self.assertProtocol('ftp://ftp.essex.ac.uk', 'ftp')
 
     def test_other_protocol(self):
-        purl = urlParser('w61xw://some.site.com')
-        self.assertEqual(purl.protocol, 'w61xw')
+        self.assertProtocol('w61xw://some.site.com', 'w61xw')
