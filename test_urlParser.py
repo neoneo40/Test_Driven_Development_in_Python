@@ -16,3 +16,12 @@ class basicProtocolParsing(unittest.TestCase):
 
     def test_other_protocol(self):
         self.assertProtocol('w61xw://some.site.com', 'w61xw')
+
+
+class basicSiteParsing(unittest.TestCase):
+    def assertProtocol(self, url, expected_site):
+        purl = urlParser(url)
+        self.assertEqual(purl.protocol, expected_site)
+
+    def test_site_without_path(self):
+        self.assertSite('http://www.essex.ac.uk', 'www.essex.ac.uk')
