@@ -39,4 +39,4 @@ class basicPathParsing(unittest.TestCase):
         self.assertEqual(purl.path, expected_path)
 
     def test_empty_path(self):
-        self.assertSite('http://www.essex.ac.uk', '')
+        self.assertPath('http://www.essex.ac.uk', '')
