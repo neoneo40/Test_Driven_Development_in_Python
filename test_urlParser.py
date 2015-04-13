@@ -40,3 +40,13 @@ class basicPathParsing(unittest.TestCase):
 
     def test_empty_path(self):
         self.assertPath('http://www.essex.ac.uk', '')
+
+    def test_empty_path_with_a_slash(self):
+        self.assertPath('http://www.essex.ac.uk/', '')
+
+    def test_empty_path_with_one_word(self):
+        self.assertPath('http://www.essex.ac.uk/homework', 'homework')
+
+    def test_empty_path_with_sub_folders(self):
+        self.assertPath('http://www.essex.com/homework/joy.txt',
+                        'homework/joy.txt')
